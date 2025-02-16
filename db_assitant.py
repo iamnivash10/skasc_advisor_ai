@@ -3,13 +3,14 @@ import speech_recognition as sr
 from langchain_groq import ChatGroq
 from langchain_community.vectorstores import Chroma
 from langchain_huggingface import HuggingFaceEmbeddings
-from langchain.prompts.prompt import PromptTemplate
-from langchain_community.docstore.in_memory import InMemoryDocstore
 from langchain.schema import Document
 from few_shots import few_shots  # Import the few-shot examples
 from gtts import gTTS
 import tempfile
 import os
+import sqlite3
+print(sqlite3.sqlite_version)
+
 
 
 # Load API key securely
