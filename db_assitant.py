@@ -1,3 +1,4 @@
+import pysqlite3 as sqlite3
 import streamlit as st
 import speech_recognition as sr
 from langchain_groq import ChatGroq
@@ -73,6 +74,9 @@ documents = [
         metadata=example
     ) for example in few_shots
 ]
+__import__('pysqlite3')
+import sys
+sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
 vectorstore = Chroma.from_documents(documents, embeddings, persist_directory="./chroma_db")
 
 
