@@ -1,1 +1,11 @@
-pysqlite3-binary
+pysqlite3
+sqlite3
+streamlit
+speechrecognition
+pyaudio
+langchain
+langchain-community
+langchain-groq
+langchain-huggingface
+chromadb
+gtts
