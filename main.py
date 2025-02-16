@@ -47,6 +47,10 @@ def text_to_speech(text):
 def voice_input():
     """Listen for user input and convert to text."""
     recognizer = sr.Recognizer()
+
+    if not sr.Microphone.list_microphone_names():
+        return "No input device detected. Please check your microphone."
+
     with sr.Microphone() as source:
         st.info("Listening... Speak now.")
         recognizer.adjust_for_ambient_noise(source)
@@ -58,6 +62,7 @@ def voice_input():
             return "Sorry, I couldn't understand the speech."
         except sr.RequestError:
             return "Error with the speech recognition service."
+
 
 
 # Initialize LLM and Vectorstore once
